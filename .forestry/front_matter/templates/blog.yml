@@ -17,4 +17,4 @@ fields:
       format: markdown
   label: Body
 pages:
-- test-1.md
+- blog/test.md
