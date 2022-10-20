@@ -5,6 +5,13 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
+  path: ''
+  label: recipies
+  create: all
+  match: "**/*"
+  templates:
+  - recipie
+- type: directory
   path: blog
   label: blog
   create: all
