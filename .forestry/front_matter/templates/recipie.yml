@@ -33,4 +33,5 @@ fields:
   default: []
   label: Categories
 pages:
+- recipies/burger.md
 - recipies/olive-salad.md
