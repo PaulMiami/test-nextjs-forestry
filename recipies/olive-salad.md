@@ -1,5 +1,8 @@
 ---
 title: olive salad
-body: olive saladolive saladolive saladolive saladolive saladolive saladolive salad
+body: |-
+  ![](/uploads/oliven_v1.jpg)
+
+  **olive** saladolive saladolive saladolive saladolive saladolive saladolive salad
 
 ---
