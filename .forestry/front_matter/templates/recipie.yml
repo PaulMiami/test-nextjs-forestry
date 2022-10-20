@@ -28,5 +28,9 @@ fields:
     max: 1000
     step: 50
     required: true
+- name: categories
+  type: tag_list
+  default: []
+  label: Categories
 pages:
 - recipies/olive-salad.md
