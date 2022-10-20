@@ -34,4 +34,5 @@ fields:
   label: Categories
 pages:
 - recipies/burger.md
+- recipies/new.md
 - recipies/olive-salad.md
