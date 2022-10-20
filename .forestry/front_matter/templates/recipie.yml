@@ -17,5 +17,16 @@ fields:
     schema:
       format: markdown
   label: Body
+- name: calories
+  type: number
+  label: Calories
+  description: This is Calories
+  default: 0
+  required: true
+  config:
+    min: 50
+    max: 1000
+    step: 50
+    required: true
 pages:
 - recipies/olive-salad.md
