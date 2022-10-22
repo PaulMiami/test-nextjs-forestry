@@ -3,13 +3,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
-import { allPosts, Post } from 'contentlayer/generated'
+import { allPosts, Post, allRecipies, Recipie } from 'contentlayer/generated'
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date))
   })
-  return { props: { posts } }
+
+  const recipies = allRecipies
+  return { props: { posts, recipies } }
 }
 
 function PostCard(post: Post) {
@@ -27,83 +29,45 @@ function PostCard(post: Post) {
   )
 }
 
-interface Props {
-  posts: [Post]
+function RecipieCard(recipie: Recipie) {
+  return (
+    <div className="mb-6">
+      <h2 className="text-lg">
+        <Link href={recipie.url}>
+          <a className="text-blue-700 hover:text-blue-900">{recipie.title}</a>
+        </Link>
+      </h2>
+    </div>
+  )
 }
 
-const Home: NextPage<Props> = ({ posts }: Props) => {
+interface Props {
+  posts: [Post]
+  recipies: [Recipie]
+}
+
+const Home: NextPage<Props> = ({ posts, recipies }: Props) => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="mx-auto max-w-2xl py-16 text-center">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Learning center</title>
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
+        <h1 className="mb-8 text-3xl font-bold">Blog</h1>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-
-          
-        </div>
-        <div>
         {posts.map((post, idx) => (
-            <PostCard key={idx} {...post} />
-          ))}
-        </div>
-      </main>
+          <PostCard key={idx} {...post} />
+        ))}
 
+        <h1 className="mb-8 text-3xl font-bold">Recipies</h1>
+
+        {recipies.map((recipie, idx) => (
+          <RecipieCard key={idx} {...recipie} />
+        ))}
+        
+      </main>
       <footer className="flex h-24 w-full items-center justify-center border-t">
         <a
           className="flex items-center justify-center gap-2"

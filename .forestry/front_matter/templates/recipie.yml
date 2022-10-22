@@ -1,5 +1,5 @@
 ---
-label: recipie
+label: recipe
 hide_body: false
 fields:
 - name: title
@@ -33,5 +33,5 @@ fields:
   default: []
   label: Categories
 pages:
-- recipies/burger.md
-- recipies/olive-salad.md
+- content/recipes/burger.md
+- content/recipes/olive-salad.md

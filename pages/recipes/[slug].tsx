@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
-import { allPosts, Post } from 'contentlayer/generated'
+import { allRecipies, Recipie } from 'contentlayer/generated'
 
 export async function getStaticPaths() {
-  const paths = allPosts.map((post) => post.url)
+  const paths = allRecipies.map((recipie) => recipie.url)
   return {
     paths,
     fallback: false,
@@ -19,23 +19,23 @@ interface Params  {
 
 
 export async function getStaticProps({ params }: Params) {
-  const post = allPosts.find((post) => post._raw.flattenedPath.endsWith(params.slug))
+  const recipie = allRecipies.find((recipie) => recipie._raw.flattenedPath.endsWith(params.slug))
   return {
     props: {
-      post,
+      recipie,
     },
   }
 }
 
 interface Props  {
-    post: Post
+  recipie: Recipie
 }
 
-const PostLayout = ({ post }: Props) => {
+const RecipieLayout = ({ recipie }: Props) => {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
+        <title>{recipie.title}</title>
       </Head>
       <article className="mx-auto max-w-2xl py-16">
         <div className="mb-6 text-center">
@@ -44,15 +44,12 @@ const PostLayout = ({ post }: Props) => {
           </Link>
         </div>
         <div className="mb-6 text-center">
-          <h1 className="mb-1 text-3xl font-bold">{post.title}</h1>
-          <time dateTime={post.date} className="text-sm text-slate-600">
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
-          </time>
+          <h1 className="mb-1 text-3xl font-bold">{recipie.title}</h1>
         </div>
-        <div className="cl-post-body" dangerouslySetInnerHTML={{ __html: post.body.html }} />
+        <div className="cl-post-body" dangerouslySetInnerHTML={{ __html: recipie.body.html }} />
       </article>
     </>
   )
 }
 
-export default PostLayout
+export default RecipieLayout

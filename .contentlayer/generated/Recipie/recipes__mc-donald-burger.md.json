@@ -1,0 +1,18 @@
+{
+  "title": "better burger",
+  "calories": 1000,
+  "body": {
+    "raw": "",
+    "html": ""
+  },
+  "_id": "recipes/mc-donald-burger.md",
+  "_raw": {
+    "sourceFilePath": "recipes/mc-donald-burger.md",
+    "sourceFileName": "mc-donald-burger.md",
+    "sourceFileDir": "recipes",
+    "contentType": "markdown",
+    "flattenedPath": "recipes/mc-donald-burger"
+  },
+  "type": "Recipie",
+  "url": "/recipes/mc-donald-burger"
+}

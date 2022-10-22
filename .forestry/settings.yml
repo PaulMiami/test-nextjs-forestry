@@ -5,14 +5,14 @@ admin_path: ''
 webhook_url: https://webhook.site/5a6a9644-2631-4466-a527-17928edf7762
 sections:
 - type: directory
-  path: recipies
+  path: content/recipies
   label: recipies
   create: all
   match: "**/*"
   templates:
-  - recipie
+  - recipe
 - type: directory
-  path: blog
+  path: content/blog
   label: blog
   create: all
   match: "**/*"

@@ -20,6 +20,20 @@ export type Post = {
   /** Markdown file body */
   body: Markdown
   url: string
+}
+
+export type Recipie = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Recipie'
+  /** The title of the recipie */
+  title: string
+  /** calories */
+  calories: number
+  /** Markdown file body */
+  body: Markdown
+  url: string
 }  
 
 /** Nested types */
@@ -30,8 +44,8 @@ export type Post = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Post
-export type DocumentTypeNames = 'Post'
+export type DocumentTypes = Post | Recipie
+export type DocumentTypeNames = 'Post' | 'Recipie'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
@@ -53,6 +67,7 @@ declare global {
 
 export type DocumentTypeMap = {
   Post: Post
+  Recipie: Recipie
 }
 
 export type NestedTypeMap = {

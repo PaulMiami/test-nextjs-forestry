@@ -1,0 +1,18 @@
+{
+  "title": "burger",
+  "calories": 1000,
+  "body": {
+    "raw": "",
+    "html": ""
+  },
+  "_id": "recipes/burger.md",
+  "_raw": {
+    "sourceFilePath": "recipes/burger.md",
+    "sourceFileName": "burger.md",
+    "sourceFileDir": "recipes",
+    "contentType": "markdown",
+    "flattenedPath": "recipes/burger"
+  },
+  "type": "Recipie",
+  "url": "/recipes/burger"
+}
