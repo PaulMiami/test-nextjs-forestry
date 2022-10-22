@@ -8,15 +8,6 @@ fields:
     required: false
   label: Title
   description: this is the title
-- name: body
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: true
-    schema:
-      format: markdown
-  label: Body
 - name: calories
   type: number
   label: Calories
