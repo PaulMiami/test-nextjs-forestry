@@ -1,9 +1,37 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import { compareDesc, format, parseISO } from 'date-fns'
+import { allPosts, Post } from 'contentlayer/generated'
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  const posts = allPosts.sort((a, b) => {
+    return compareDesc(new Date(a.date), new Date(b.date))
+  })
+  return { props: { posts } }
+}
+
+function PostCard(post: Post) {
+  return (
+    <div className="mb-6">
+      <time dateTime={post.date} className="block text-sm text-slate-600">
+        {format(parseISO(post.date), 'LLLL d, yyyy')}
+      </time>
+      <h2 className="text-lg">
+        <Link href={post.url}>
+          <a className="text-blue-700 hover:text-blue-900">{post.title}</a>
+        </Link>
+      </h2>
+    </div>
+  )
+}
+
+interface Props {
+  posts: [Post]
+}
+
+const Home: NextPage<Props> = ({ posts }: Props) => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -66,6 +94,13 @@ const Home: NextPage = () => {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+
+          
+        </div>
+        <div>
+        {posts.map((post, idx) => (
+            <PostCard key={idx} {...post} />
+          ))}
         </div>
       </main>
 

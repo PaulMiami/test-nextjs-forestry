@@ -1,0 +1,27 @@
+{
+  "cacheItemsMap": {
+    "test.md": {
+      "document": {
+        "title": "test",
+        "date": "2021-12-24T00:00:00.000Z",
+        "body": {
+          "raw": "1. **testing**\n   Hello",
+          "html": "<ol>\n<li><strong>testing</strong>\nHello</li>\n</ol>"
+        },
+        "_id": "test.md",
+        "_raw": {
+          "sourceFilePath": "test.md",
+          "sourceFileName": "test.md",
+          "sourceFileDir": ".",
+          "contentType": "markdown",
+          "flattenedPath": "test"
+        },
+        "type": "Post",
+        "url": "/blog/test"
+      },
+      "documentHash": "1666467040747",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    }
+  }
+}
