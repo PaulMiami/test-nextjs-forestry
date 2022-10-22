@@ -6,7 +6,7 @@ webhook_url: https://webhook.site/5a6a9644-2631-4466-a527-17928edf7762
 sections:
 - type: directory
   path: content/recipies
-  label: recipies
+  label: recipie
   create: all
   match: "**/*"
   templates:
