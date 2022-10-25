@@ -25,4 +25,5 @@ fields:
   label: Categories
 pages:
 - content/recipes/burger.md
+- content/recipes/mediterranean-diet-salad.md
 - content/recipes/olive-salad.md

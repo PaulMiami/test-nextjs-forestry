@@ -10,7 +10,7 @@ sections:
   create: all
   match: "**/*"
   templates:
-  - recipe
+  - recipie
 - type: directory
   path: content/blog
   label: blog
